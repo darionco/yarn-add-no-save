@@ -130,7 +130,7 @@ async function restoreYarnLock(binLock) {
 }
 
 async function loadPeerPackage(peerVersion) {
-    if (peerVersion.endsWith('.json')) {
+    if (peerVersion && peerVersion.endsWith('.json')) {
         const baseFolder = process.env.INIT_CWD || process.env.PWD;
         const filePath = path.resolve(baseFolder, peerVersion);
         const file = await loadFile(filePath);
