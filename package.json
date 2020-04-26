@@ -1,0 +1,26 @@
+{
+  "name": "yarn-add-no-save",
+  "version": "1.0.0",
+  "description": "Implements the much requested feature of installing packages without saving them with yarn.",
+  "main": "bin/main.js",
+  "author": "Dario Segura",
+  "repository": "https://github.com/darionco/yarn-add-no-save.git",
+  "license": "MIT",
+  "bin": {
+    "add-no-save": "bin/local.js",
+    "yarn-add-no-save": "bin/global.js"
+  },
+  "files": [
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "yarn",
+    "peerDeps",
+    "add",
+    "peerDependencies",
+    "no-save",
+    "--no-save"
+  ]
+}
