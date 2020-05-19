@@ -1,6 +1,6 @@
 {
   "name": "yarn-add-no-save",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Implements the much requested feature of installing packages without saving them with yarn.",
   "main": "bin/main.js",
   "author": "Dario Segura",
