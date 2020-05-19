@@ -104,22 +104,22 @@ function deleteFile(filePath) {
 }
 
 async function loadPackageJSON() {
-    const filePath = path.resolve(process.env.PWD, 'package.json');
+    const filePath = path.resolve(process.cwd(), 'package.json');
     return loadFile(filePath);
 }
 
 async function restorePackageJSON(binPkg) {
-    const filePath = path.resolve(process.env.PWD, 'package.json');
+    const filePath = path.resolve(process.cwd(), 'package.json');
     return writeFile(filePath, binPkg);
 }
 
 async function loadYarnLock() {
-    const filePath = path.resolve(process.env.PWD, 'yarn.lock');
+    const filePath = path.resolve(process.cwd(), 'yarn.lock');
     return loadFile(filePath);
 }
 
 async function restoreYarnLock(binLock) {
-    const filePath = path.resolve(process.env.PWD, 'yarn.lock');
+    const filePath = path.resolve(process.cwd(), 'yarn.lock');
     if (!binLock) {
         if (fs.existsSync(filePath)) {
             await deleteFile(filePath);
@@ -131,7 +131,7 @@ async function restoreYarnLock(binLock) {
 
 async function loadPeerPackage(peerVersion) {
     if (peerVersion && peerVersion.endsWith('.json')) {
-        const baseFolder = process.env.INIT_CWD || process.env.PWD;
+        const baseFolder = process.env.INIT_CWD || process.cwd();
         const filePath = path.resolve(baseFolder, peerVersion);
         const file = await loadFile(filePath);
         if (file) {
@@ -230,7 +230,7 @@ function runTask(packages, unknownOptions) {
         }
 
         const options = {
-            cwd: process.env.PWD,
+            cwd: process.cwd(),
             stdio: [process.stdin, process.stdout, process.stderr],
         };
 
