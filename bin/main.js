@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const childProcess = require('child_process');
 const thisPkg = require('../package.json');
+const which = require('which');
 
 const logger = require('./logger.js');
 
@@ -234,7 +235,9 @@ function runTask(packages, unknownOptions) {
             stdio: [process.stdin, process.stdout, process.stderr],
         };
 
-        const child = childProcess.spawn('yarn', args, options);
+        const yarnPath = which.sync('yarn');
+
+        const child = childProcess.spawn(yarnPath, args, options);
 
         child.once('error', err => {
             reject(err);

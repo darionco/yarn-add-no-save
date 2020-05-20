@@ -22,5 +22,8 @@
     "peerDependencies",
     "no-save",
     "--no-save"
-  ]
+  ],
+  "dependencies": {
+    "which": "^2.0.2"
+  }
 }
